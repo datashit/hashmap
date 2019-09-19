@@ -54,6 +54,10 @@ func (m *HashMap) mapData() *hashMapData {
 	return (*hashMapData)(atomic.LoadPointer(&m.datamap))
 }
 
+func (m *HashMap) List() *List {
+	return (*List)(atomic.LoadPointer(&m.linkedlist))
+}
+
 func (m *HashMap) list() *List {
 	return (*List)(atomic.LoadPointer(&m.linkedlist))
 }
