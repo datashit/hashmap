@@ -20,6 +20,10 @@ func (e *ListElement) Value() (value interface{}) {
 	return *(*interface{})(atomic.LoadPointer(&e.value))
 }
 
+func (e *ListElement) Key() interface{} {
+	return e.key
+}
+
 // Next returns the item on the right.
 func (e *ListElement) Next() *ListElement {
 	return (*ListElement)(atomic.LoadPointer(&e.nextElement))
